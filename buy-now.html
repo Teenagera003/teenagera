@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Buy Now - Teenagera</title>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+<style>
+.input-box{width:100%; padding:12px; margin:8px 0; border:1px solid #EFE8D8; border-radius:8px; font-family:Poppins}
+.step{display:flex; gap:14px; margin:18px 0} .num{background:#5D1F2C; color:#F9F5EB; width:34px; height:34px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-weight:700; flex-shrink:0}
+</style>
+</head>
+<body>
+
+<div class="top-bar">
+<div class="cursive-logo">Teenagera</div>
+<div class="auth"><a href="login.html" id="loginLink">LOG IN</a><a href="#" id="logoutLink" style="display:none;" onclick="logout()">LOG OUT</a></div>
+</div>
+
+<header class="thin-header">
+<a href="index.html">Home</a>
+<a href="library.html">Library</a>
+<a href="new-arrivals.html">New Arrivals</a>
+<a href="cart.html">Cart</a>
+<a href="buy-now.html" class="active">Buy Now</a>
+<a href="whatsapp-pay.html">WhatsApp Pay</a>
+<a href="reviews.html">Reviews</a>
+<a href="about.html">About Us</a>
+<a href="contact.html">Contact Us</a>
+<a href="my-account.html">My Account</a>
+</header>
+
+<div class="page-bg"><div class="container">
+
+<div class="card text-center">
+<h1>BUY NOW</h1>
+<p class="tagline">Secure Checkout Process</p>
+</div>
+
+<div class="card">
+<h2>Heading - Enter Profile Details</h2>
+<h3>Subheading - Verify Your Account To Continue</h3>
+<p class="desc">Write instruction here... User must enter profile name & password</p>
+<input class="input-box" type="text" id="pname" placeholder="Profile Name">
+<input class="input-box" type="password" id="ppass" placeholder="Password">
+<a href="#" class="btn" onclick="goToWhatsAppPay()">Continue To WhatsApp Pay Page</a>
+<p class="desc" id="msg" style="margin-top:10px; color:#5D1F2C"></p>
+</div>
+
+<div class="card silver">
+<h2>Heading - How It Works</h2>
+<div class="step"><div class="num">1</div><div><h3>Subheading - Verify Profile</h3><p class="desc">Write content...</p></div></div>
+<div class="step"><div class="num">2</div><div><h3>Subheading - WhatsApp Payment</h3><p class="desc">Write content...</p></div></div>
+<div class="step"><div class="num">3</div><div><h3>Subheading - Instant Download</h3><p class="desc">Write content...</p></div></div>
+</div>
+
+</div></div>
+
+<footer class="footer">
+<h3 class="cursive" style="font-size:34px; border:none; color:#F9F5EB">Teenagera</h3>
+<div class="social-links">
+<a href="https://instagram.com/teenagera_official" target="_blank">IG</a>
+<a href="#" style="opacity:0.6">YT</a>
+<a href="https://wa.me/923257249825" target="_blank">WA</a>
+</div>
+</footer>
+
+<script>
+function checkAuth(){const u=localStorage.getItem('teenagera_user'); if(u){document.getElementById('loginLink').style.display='none'; document.getElementById('logoutLink').style.display='inline-block'; document.getElementById('pname').value=u;}}
+function logout(){localStorage.removeItem('teenagera_user'); location.href='index.html';}
+function goToWhatsAppPay(){
+let n=document.getElementById('pname').value; let p=document.getElementById('ppass').value;
+if(!n||!p){document.getElementById('msg').innerText='Enter profile name and password'; return;}
+let savedUser=localStorage.getItem('teenagera_user'); let savedPass=localStorage.getItem('teenagera_pass')||'1234';
+if(n!==savedUser){document.getElementById('msg').innerText='Profile not found. Please Log In first'; return;}
+localStorage.setItem('teenagera_checkout_name',n);
+location.href='whatsapp-pay.html';
+}
+checkAuth();
+</script>
+
+</body>
+</html>
