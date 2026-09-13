@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>New Arrivals - Teenagera</title>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+<style>
+.arrival-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:18px}
+.arrival{background:white; border-radius:16px; padding:24px; text-align:center; border:2px solid #EFE8D8; transition:0.3s}
+.arrival:hover{border-color:#5D1F2C}
+.badge{background:#5D1F2C; color:white; font-size:10px; padding:5px 12px; border-radius:20px; display:inline-block; margin-bottom:10px; letter-spacing:1px}
+</style>
+</head>
+<body>
+
+<div class="top-bar">
+<div class="cursive-logo">Teenagera</div>
+<div class="auth"><a href="login.html" id="loginLink">LOG IN</a><a href="#" id="logoutLink" style="display:none;" onclick="logout()">LOG OUT</a></div>
+</div>
+
+<header class="thin-header">
+<a href="index.html">Home</a>
+<a href="library.html">Library</a>
+<a href="new-arrivals.html" class="active">New Arrivals</a>
+<a href="cart.html">Cart</a>
+<a href="buy-now.html">Buy Now</a>
+<a href="whatsapp-pay.html">WhatsApp Pay</a>
+<a href="reviews.html">Reviews</a>
+<a href="about.html">About Us</a>
+<a href="contact.html">Contact Us</a>
+<a href="my-account.html">My Account</a>
+</header>
+
+<div class="page-bg"><div class="container">
+
+<div class="card text-center">
+<h1>NEW ARRIVALS</h1>
+<p class="tagline">Just Added - Limited Offers</p>
+<h2>Heading - Fresh eBooks This Week</h2>
+<p class="desc">WRITE YOUR NEW ARRIVALS INTRO HERE...</p>
+</div>
+
+<div class="arrival-grid">
+<div class="arrival">
+<span class="badge">NEW</span>
+<h3>Heading - New Book 1</h3>
+<h3 style="font-size:11px; color:#999">Subheading - Added: Date Here</h3>
+<p class="desc">Write description here...</p>
+<a href="#" class="btn" style="padding:8px 18px; font-size:12px">View Details</a>
+</div>
+<div class="arrival">
+<span class="badge">NEW</span>
+<h3>Heading - New Book 2</h3>
+<h3 style="font-size:11px; color:#999">Subheading - Added: Date Here</h3>
+<p class="desc">Write description here...</p>
+<a href="#" class="btn" style="padding:8px 18px; font-size:12px">View Details</a>
+</div>
+<div class="arrival">
+<span class="badge">HOT OFFER</span>
+<h3>Heading - New Book 3</h3>
+<h3 style="font-size:11px; color:#999">Subheading - 20% Off</h3>
+<p class="desc">Write offer details here...</p>
+<a href="#" class="btn" style="padding:8px 18px; font-size:12px">View Details</a>
+</div>
+</div>
+
+</div></div>
+
+<footer class="footer">
+<h3 class="cursive" style="font-size:34px; border:none; color:#F9F5EB">Teenagera</h3>
+<div class="social-links">
+<a href="https://instagram.com/teenagera_official" target="_blank">IG</a>
+<a href="#" style="opacity:0.6">YT</a>
+<a href="https://wa.me/923257249825" target="_blank">WA</a>
+</div>
+</footer>
+
+<script>
+function checkAuth(){const u=localStorage.getItem('teenagera_user'); if(u){document.getElementById('loginLink').style.display='none'; document.getElementById('logoutLink').style.display='inline-block';}}
+function logout(){localStorage.removeItem('teenagera_user'); location.href='index.html';}
+checkAuth();
+</script>
+
+</body>
+</html>

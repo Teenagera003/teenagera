@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reviews - Teenagera</title>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+<style>
+.review{background:white; border-radius:14px; padding:20px; border-left:4px solid #5D1F2C; margin-bottom:15px}
+.stars{color:#FFC107; letter-spacing:2px}
+</style>
+</head>
+<body>
+
+<div class="top-bar">
+<div class="cursive-logo">Teenagera</div>
+<div class="auth"><a href="login.html" id="loginLink">LOG IN</a><a href="#" id="logoutLink" style="display:none;" onclick="logout()">LOG OUT</a></div>
+</div>
+
+<header class="thin-header">
+<a href="index.html">Home</a>
+<a href="library.html">Library</a>
+<a href="new-arrivals.html">New Arrivals</a>
+<a href="cart.html">Cart</a>
+<a href="buy-now.html">Buy Now</a>
+<a href="whatsapp-pay.html">WhatsApp Pay</a>
+<a href="reviews.html" class="active">Reviews</a>
+<a href="about.html">About Us</a>
+<a href="contact.html">Contact Us</a>
+<a href="my-account.html">My Account</a>
+</header>
+
+<div class="page-bg"><div class="container">
+
+<div class="card text-center">
+<h1>REVIEWS</h1>
+<p class="tagline">What Teenagers Say About Us</p>
+<h2>Heading - Customer Feedback</h2>
+</div>
+
+<div class="review">
+<div class="stars">★★★★★</div>
+<h3>Heading - Review Title 1</h3>
+<h3 style="font-size:11px; color:#999">Subheading - Name - Location</h3>
+<p class="desc">Write review content here...</p>
+</div>
+
+<div class="review">
+<div class="stars">★★★★★</div>
+<h3>Heading - Review Title 2</h3>
+<h3 style="font-size:11px; color:#999">Subheading - Name - Location</h3>
+<p class="desc">Write review content here...</p>
+</div>
+
+<div class="review">
+<div class="stars">★★★★★</div>
+<h3>Heading - Review Title 3</h3>
+<p class="desc">Write review content here...</p>
+</div>
+
+<div class="card text-center silver">
+<h2>Heading - Add Your Review</h2>
+<h3>Subheading - Share Your Experience</h3>
+<p class="desc">Write how customers can add review via WhatsApp or Instagram...</p>
+<a href="https://wa.me/923257249825?text=Hi%20Teenagera,%20I%20want%20to%20leave%20a%20review" target="_blank" class="btn" style="background:#25D366">Write Review On WhatsApp</a>
+</div>
+
+</div></div>
+
+<footer class="footer">
+<h3 class="cursive" style="font-size:34px; border:none; color:#F9F5EB">Teenagera</h3>
+<div class="social-links">
+<a href="https://instagram.com/teenagera_official" target="_blank">IG</a>
+<a href="#" style="opacity:0.6">YT</a>
+<a href="https://wa.me/923257249825" target="_blank">WA</a>
+</div>
+</footer>
+
+<script>
+function checkAuth(){const u=localStorage.getItem('teenagera_user'); if(u){document.getElementById('loginLink').style.display='none'; document.getElementById('logoutLink').style.display='inline-block';}}
+function logout(){localStorage.removeItem('teenagera_user'); location.href='index.html';}
+checkAuth();
+</script>
+
+</body>
+</html>

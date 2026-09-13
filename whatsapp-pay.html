@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WhatsApp Pay - Teenagera</title>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+<style>
+.wa-banner{background:#25D366; color:white; padding:25px; border-radius:18px 18px 0 0; text-align:center; display:flex; align-items:center; justify-content:center; gap:15px}
+.wa-banner .icon{width:50px; height:50px; background:white; border-radius:50%; display:flex; align-items:center; justify-content:center; color:#25D366; font-weight:800; font-size:22px}
+.wa-card{background:white; border-radius:0 0 18px 18px; padding:30px; box-shadow:0 4px 18px rgba(0,0,0,0.08); margin-bottom:22px; border-left:5px solid #25D366}
+.benefit{display:flex; gap:12px; margin:14px 0; background:#F0FFF4; padding:12px; border-radius:10px}
+</style>
+</head>
+<body>
+
+<div class="top-bar">
+<div class="cursive-logo">Teenagera</div>
+<div class="auth"><a href="login.html" id="loginLink">LOG IN</a><a href="#" id="logoutLink" style="display:none;" onclick="logout()">LOG OUT</a></div>
+</div>
+
+<header class="thin-header">
+<a href="index.html">Home</a>
+<a href="library.html">Library</a>
+<a href="new-arrivals.html">New Arrivals</a>
+<a href="cart.html">Cart</a>
+<a href="buy-now.html">Buy Now</a>
+<a href="whatsapp-pay.html" class="active">WhatsApp Pay</a>
+<a href="reviews.html">Reviews</a>
+<a href="about.html">About Us</a>
+<a href="contact.html">Contact Us</a>
+<a href="my-account.html">My Account</a>
+</header>
+
+<div class="page-bg"><div class="container">
+
+<!-- WhatsApp Banner On Top -->
+<div class="wa-banner">
+<div class="icon">W</div>
+<div style="text-align:left">
+<h2 style="border:none; color:white; margin:0; padding:0">Pay Securely On WhatsApp</h2>
+<p style="font-size:12px; opacity:0.9; margin:0">Fast • Safe • Instant Download</p>
+</div>
+</div>
+
+<div class="wa-card">
+<h1>Heading - Why Pay On WhatsApp?</h1>
+<p class="tagline">You asked - Why WhatsApp Payment?</p>
+<h3>Subheading - Write Your Reason Here</h3>
+<p class="desc">WRITE DETAILS HERE - Why you use WhatsApp pay, trust, instant delivery etc...</p>
+
+<h2 style="margin-top:25px">Heading - Benefits Of Paying On WhatsApp</h2>
+<h3>Subheading - Benefits List</h3>
+
+<div class="benefit"><div>✅</div><div><h3>Subheading - Benefit 1: Instant Delivery</h3><p class="desc">Write benefit 1 details here...</p></div></div>
+<div class="benefit"><div>✅</div><div><h3>Subheading - Benefit 2: Direct Support</h3><p class="desc">Write benefit 2 details here...</p></div></div>
+<div class="benefit"><div>✅</div><div><h3>Subheading - Benefit 3: Secure & Trusted</h3><p class="desc">Write benefit 3 details here...</p></div></div>
+
+<div style="text-align:center; margin-top:25px">
+<p class="desc">Your Total: <span id="payTotal" style="color:#5D1F2C; font-weight:700">$0</span></p>
+<a href="#" class="btn" style="background:#25D366; color:white; font-size:15px; padding:14px 35px" onclick="payNow()">WhatsApp Pay Now - Click To Redirect To WhatsApp</a>
+<p class="desc" style="margin-top:10px; font-size:11px">Clicking will open WhatsApp with your order details</p>
+</div>
+</div>
+
+</div></div>
+
+<footer class="footer">
+<h3 class="cursive" style="font-size:34px; border:none; color:#F9F5EB">Teenagera</h3>
+<div class="social-links">
+<a href="https://instagram.com/teenagera_official" target="_blank">IG</a>
+<a href="#" style="opacity:0.6">YT</a>
+<a href="https://wa.me/923257249825" target="_blank">WA</a>
+</div>
+</footer>
+
+<script>
+function checkAuth(){const u=localStorage.getItem('teenagera_user'); if(u){document.getElementById('loginLink').style.display='none'; document.getElementById('logoutLink').style.display='inline-block';}}
+function logout(){localStorage.removeItem('teenagera_user'); location.href='index.html';}
+let total=localStorage.getItem('teenagera_total')||'0'; document.getElementById('payTotal').innerText='$'+total;
+function payNow(){
+let cart=JSON.parse(localStorage.getItem('teenagera_cart')||'[]'); let name=localStorage.getItem('teenagera_checkout_name')||'Customer';
+let items=cart.map(c=>c.name).join(', '); let msg=`Hi Teenagera! I am ${name}. I want to pay via WhatsApp. My cart: ${items}. Total: $${total}. Please send payment details.`;
+let url=`https://wa.me/923257249825?text=${encodeURIComponent(msg)}`;
+localStorage.setItem('teenagera_last_order', JSON.stringify({items:cart,total:total,date:new Date().toLocaleDateString()}));
+window.open(url,'_blank');
+}
+checkAuth();
+</script>
+
+</body>
+</html>
