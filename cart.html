@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cart - Teenagera</title>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+<style>
+.cart-row{display:flex; justify-content:space-between; align-items:center; padding:18px 0; border-bottom:1px solid #EFE8D8}
+.cart-total{text-align:right; font-size:22px; color:#4A1C26; font-weight:700; margin-top:20px}
+.qty-btn{border:1px solid #5D1F2C; background:white; color:#5D1F2C; width:28px; height:28px; border-radius:50%; cursor:pointer}
+</style>
+</head>
+<body>
+
+<div class="top-bar">
+<div class="cursive-logo">Teenagera</div>
+<div class="auth"><a href="login.html" id="loginLink">LOG IN</a><a href="#" id="logoutLink" style="display:none;" onclick="logout()">LOG OUT</a></div>
+</div>
+
+<header class="thin-header">
+<a href="index.html">Home</a>
+<a href="library.html">Library</a>
+<a href="new-arrivals.html">New Arrivals</a>
+<a href="cart.html" class="active">Cart</a>
+<a href="buy-now.html">Buy Now</a>
+<a href="whatsapp-pay.html">WhatsApp Pay</a>
+<a href="reviews.html">Reviews</a>
+<a href="about.html">About Us</a>
+<a href="contact.html">Contact Us</a>
+<a href="my-account.html">My Account</a>
+</header>
+
+<div class="page-bg"><div class="container">
+
+<div class="card text-center">
+<h1>CART</h1>
+<p class="tagline">Review Your Items - Professional System</p>
+<h2>Heading - Your Selected Books</h2>
+</div>
+
+<div class="card">
+<h2>Heading - Items In Cart</h2>
+<h3>Subheading - Quantity & Price</h3>
+<div id="cartList"><p class="desc">Cart empty. Go to Library to add.</p></div>
+<div class="cart-total" id="total"></div>
+</div>
+
+<div class="card text-center">
+<h2>Heading - Checkout</h2>
+<h3>Subheading - Secure Your Books</h3>
+<p class="desc">Proceed to Buy Now page, then WhatsApp Pay</p>
+<a href="buy-now.html" class="btn">PROCEED TO BUY NOW</a>
+<a href="library.html" class="btn" style="background:white; color:#5D1F2C; border:1px solid #5D1F2C">CONTINUE SHOPPING</a>
+</div>
+
+</div></div>
+
+<footer class="footer">
+<h3 class="cursive" style="font-size:34px; border:none; color:#F9F5EB">Teenagera</h3>
+<div class="social-links">
+<a href="https://instagram.com/teenagera_official" target="_blank">IG</a>
+<a href="#" style="opacity:0.6">YT</a>
+<a href="https://wa.me/923257249825" target="_blank">WA</a>
+</div>
+</footer>
+
+<script>
+function checkAuth(){const u=localStorage.getItem('teenagera_user'); if(u){document.getElementById('loginLink').style.display='none'; document.getElementById('logoutLink').style.display='inline-block';}}
+function logout(){localStorage.removeItem('teenagera_user'); location.href='index.html';}
+let cart=JSON.parse(localStorage.getItem('teenagera_cart')||'[]'); let list=document.getElementById('cartList'); let t=0;
+if(cart.length>0){list.innerHTML=''; cart.forEach((it,i)=>{t+=it.price; list.innerHTML+=`<div class="cart-row"><div><h3>${it.name}</h3><p class="desc">Instant Download</p></div><div><span style="color:#5D1F2C; font-weight:700">$${it.price}</span> <button class="qty-btn" onclick="removeItem(${i})">x</button></div></div>`}); document.getElementById('total').innerText='Total: $'+t; localStorage.setItem('teenagera_total',t);}
+function removeItem(i){let c=JSON.parse(localStorage.getItem('teenagera_cart')||'[]'); c.splice(i,1); localStorage.setItem('teenagera_cart',JSON.stringify(c)); location.reload();}
+checkAuth();
+</script>
+
+</body>
+</html>
