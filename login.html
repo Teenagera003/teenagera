@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Log In - Teenagera</title>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+<style>
+.login-box{max-width:420px; margin:0 auto; background:white; border-radius:18px; padding:30px; box-shadow:0 8px 22px rgba(0,0,0,0.07); border-top:5px solid #5D1F2C}
+.inp{width:100%; padding:12px; margin:10px 0; border:1px solid #EFE8D8; border-radius:8px; font-family:Poppins}
+</style>
+</head>
+<body>
+
+<div class="top-bar">
+<div class="cursive-logo">Teenagera</div>
+<div class="auth"><a href="login.html" id="loginLink">LOG IN</a><a href="#" id="logoutLink" style="display:none;" onclick="logout()">LOG OUT</a></div>
+</div>
+
+<header class="thin-header">
+<a href="index.html">Home</a>
+<a href="library.html">Library</a>
+<a href="new-arrivals.html">New Arrivals</a>
+<a href="cart.html">Cart</a>
+<a href="buy-now.html">Buy Now</a>
+<a href="whatsapp-pay.html">WhatsApp Pay</a>
+<a href="reviews.html">Reviews</a>
+<a href="about.html">About Us</a>
+<a href="contact.html">Contact Us</a>
+<a href="my-account.html">My Account</a>
+</header>
+
+<div class="page-bg"><div class="container">
+
+<div class="card text-center">
+<h1>LOG IN / LOG OUT</h1>
+<p class="tagline">Access Your Teenagera Account</p>
+</div>
+
+<div class="login-box text-center">
+<h2>Heading - Welcome Back</h2>
+<h3>Subheading - Enter Profile Details</h3>
+<input class="inp" id="lname" placeholder="Profile Name (e.g. TeenageraUser)">
+<input class="inp" id="lpass" type="password" placeholder="Password (default 1234)">
+<a href="#" class="btn" onclick="doLogin()" style="width:100%">LOG IN</a>
+<p class="desc" style="margin-top:12px">If new user, just enter name & password, it will create account automatically</p>
+<p class="desc" id="lmsg" style="color:#5D1F2C"></p>
+<a href="#" class="btn" id="logoutBtn" style="display:none; background:#4A1C26; margin-top:10px; width:100%" onclick="logout()">LOG OUT</a>
+</div>
+
+</div></div>
+
+<footer class="footer">
+<h3 class="cursive" style="font-size:34px; border:none; color:#F9F5EB">Teenagera</h3>
+<div class="social-links">
+<a href="https://instagram.com/teenagera_official" target="_blank">IG</a>
+<a href="#" style="opacity:0.6">YT</a>
+<a href="https://wa.me/923257249825" target="_blank">WA</a>
+</div>
+</footer>
+
+<script>
+function checkAuth(){const u=localStorage.getItem('teenagera_user'); if(u){document.getElementById('loginLink').style.display='none'; document.getElementById('logoutLink').style.display='inline-block'; document.getElementById('logoutBtn').style.display='inline-block'; document.getElementById('lmsg').innerText='Logged in as '+u;}}
+function doLogin(){let n=document.getElementById('lname').value; let p=document.getElementById('lpass').value; if(!n||!p){document.getElementById('lmsg').innerText='Enter name & password'; return;} localStorage.setItem('teenagera_user',n); localStorage.setItem('teenagera_pass',p); location.href='my-account.html';}
+function logout(){localStorage.removeItem('teenagera_user'); location.href='index.html';}
+checkAuth();
+</script>
+
+</body>
+</html>

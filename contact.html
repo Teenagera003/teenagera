@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact Us - Teenagera</title>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+<style>
+.info{background:#F9F5EB; padding:15px; border-radius:10px; margin:10px 0; border-left:3px solid #5D1F2C}
+</style>
+</head>
+<body>
+
+<div class="top-bar">
+<div class="cursive-logo">Teenagera</div>
+<div class="auth"><a href="login.html" id="loginLink">LOG IN</a><a href="#" id="logoutLink" style="display:none;" onclick="logout()">LOG OUT</a></div>
+</div>
+
+<header class="thin-header">
+<a href="index.html">Home</a>
+<a href="library.html">Library</a>
+<a href="new-arrivals.html">New Arrivals</a>
+<a href="cart.html">Cart</a>
+<a href="buy-now.html">Buy Now</a>
+<a href="whatsapp-pay.html">WhatsApp Pay</a>
+<a href="reviews.html">Reviews</a>
+<a href="about.html">About Us</a>
+<a href="contact.html" class="active">Contact Us</a>
+<a href="my-account.html">My Account</a>
+</header>
+
+<div class="page-bg"><div class="container">
+
+<div class="card text-center">
+<h1>CONTACT US</h1>
+<p class="tagline">We Are Here To Help</p>
+<h2>Heading - Get In Touch</h2>
+</div>
+
+<div class="card">
+<h2>Heading - Contact Information - All Clickable</h2>
+
+<div class="info">
+<h3>Subheading - Instagram - Click To Open</h3>
+<p class="desc"><a href="https://instagram.com/teenagera_official" target="_blank" style="color:#5D1F2C; font-weight:700">@teenagera_official - Click Here</a></p>
+</div>
+
+<div class="info">
+<h3>Subheading - WhatsApp - Direct Chat</h3>
+<p class="desc"><a href="https://wa.me/923000000000?text=Hi%20Teenagera,%20I%20need%20help" target="_blank" style="color:#25D366; font-weight:700">Chat On WhatsApp - Click To Message Directly</a></p>
+</div>
+
+<div class="info">
+<h3>Subheading - YouTube - Coming Soon</h3>
+<p class="desc">Your YouTube link will be here - you said later</p>
+</div>
+
+<div class="info">
+<h3>Subheading - Email & Location</h3>
+<p class="desc">WRITE YOUR EMAIL HERE...<br>WRITE YOUR LOCATION / ORIGIN: PAKISTAN | ACCESS: WORLDWIDE</p>
+</div>
+
+</div>
+
+</div></div>
+
+<footer class="footer">
+<h3 class="cursive" style="font-size:34px; border:none; color:#F9F5EB">Teenagera</h3>
+<div class="social-links">
+<a href="https://instagram.com/teenagera_official" target="_blank">IG</a>
+<a href="#" style="opacity:0.6">YT</a>
+<a href="https://wa.me/923257249825" target="_blank">WA</a>
+</div>
+</footer>
+
+<script>
+function checkAuth(){const u=localStorage.getItem('teenagera_user'); if(u){document.getElementById('loginLink').style.display='none'; document.getElementById('logoutLink').style.display='inline-block';}}
+function logout(){localStorage.removeItem('teenagera_user'); location.href='index.html';}
+checkAuth();
+</script>
+
+</body>
+</html>

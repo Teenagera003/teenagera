@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Account - Teenagera</title>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+<style>
+.stat-box{background:#F9F5EB; padding:16px; border-radius:12px; margin:10px 0; border-left:4px solid #5D1F2C}
+.offer{background:#FFF3CD; border-left:4px solid #FFC107; padding:14px; border-radius:10px; margin:10px 0}
+.input{width:100%; padding:11px; margin:6px 0; border:1px solid #EFE8D8; border-radius:8px}
+</style>
+</head>
+<body>
+
+<div class="top-bar">
+<div class="cursive-logo">Teenagera</div>
+<div class="auth"><a href="login.html" id="loginLink">LOG IN</a><a href="#" id="logoutLink" style="display:none;" onclick="logout()">LOG OUT</a></div>
+</div>
+
+<header class="thin-header">
+<a href="index.html">Home</a>
+<a href="library.html">Library</a>
+<a href="new-arrivals.html">New Arrivals</a>
+<a href="cart.html">Cart</a>
+<a href="buy-now.html">Buy Now</a>
+<a href="whatsapp-pay.html">WhatsApp Pay</a>
+<a href="reviews.html">Reviews</a>
+<a href="about.html">About Us</a>
+<a href="contact.html">Contact Us</a>
+<a href="my-account.html" class="active">My Account</a>
+</header>
+
+<div class="page-bg"><div class="container">
+
+<div class="card text-center">
+<h1>MY ACCOUNT</h1>
+<p class="tagline">Manage Profile, Purchases & Offers</p>
+</div>
+
+<div class="card">
+<h2>Heading - Profile Details</h2>
+<h3>Subheading - Name & Password Of Your Profile</h3>
+
+<div class="stat-box">
+<h3>Profile Name</h3>
+<input class="input" id="accName" placeholder="Your Name">
+<h3>Password</h3>
+<input class="input" id="accPass" type="password" placeholder="Your Password">
+<a href="#" class="btn" style="padding:8px 16px; font-size:12px" onclick="saveProfile()">Save Profile</a>
+<p class="desc" id="saveMsg" style="margin-top:8px; color:#25D366"></p>
+</div>
+</div>
+
+<div class="card">
+<h2>Heading - How Many Things You Bought</h2>
+<h3>Subheading - Your Purchase History</h3>
+<div id="boughtList"><p class="desc">No purchases yet. Data from Cart & WhatsApp Pay is saved here.</p></div>
+<div class="stat-box">
+<h3>Total Books Bought: <span id="boughtCount">0</span></h3>
+<h3>Total Spent: <span id="boughtTotal">$0</span></h3>
+</div>
+</div>
+
+<div class="card">
+<h2>Heading - Offers On Digital Products</h2>
+<h3>Subheading - Active Deals For You</h3>
+
+<div class="offer">
+<h3>Offer 1 - 20% Off On Next Book</h3>
+<p class="desc">WRITE YOUR OFFER DETAILS HERE... You can manage this when you have web control</p>
+</div>
+
+<div class="offer">
+<h3>Offer 2 - Bundle Deal</h3>
+<p class="desc">WRITE YOUR OFFER DETAILS HERE... Buy 2 Get 1 Free etc</p>
+</div>
+
+<div class="offer">
+<h3>Offer 3 - New Arrivals Discount</h3>
+<p class="desc">WRITE YOUR OFFER DETAILS HERE...</p>
+</div>
+
+</div>
+
+</div></div>
+
+<footer class="footer">
+<h3 class="cursive" style="font-size:34px; border:none; color:#F9F5EB">Teenagera</h3>
+<div class="social-links">
+<a href="https://instagram.com/teenagera_official" target="_blank">IG</a>
+<a href="#" style="opacity:0.6">YT</a>
+<a href="https://wa.me/923257249825" target="_blank">WA</a>
+</div>
+</footer>
+
+<script>
+function checkAuth(){
+const u=localStorage.getItem('teenagera_user'); 
+const p=localStorage.getItem('teenagera_pass')||'1234';
+if(u){document.getElementById('loginLink').style.display='none'; document.getElementById('logoutLink').style.display='inline-block'; document.getElementById('accName').value=u; document.getElementById('accPass').value=p;}
+else{window.location.href='login.html';}
+let bought=JSON.parse(localStorage.getItem('teenagera_bought')||'[]');
+let total=localStorage.getItem('teenagera_total')||'0';
+let last=JSON.parse(localStorage.getItem('teenagera_last_order')||'null');
+let list=document.getElementById('boughtList');
+if(bought.length>0){list.innerHTML=''; bought.forEach(b=>{list.innerHTML+=`<div class="stat-box"><h3>${b}</h3><p class="desc">Instant Download - Purchased</p></div>`});}
+document.getElementById('boughtCount').innerText=bought.length;
+document.getElementById('boughtTotal').innerText='$'+total;
+}
+function saveProfile(){
+let n=document.getElementById('accName').value; let p=document.getElementById('accPass').value;
+localStorage.setItem('teenagera_user',n); localStorage.setItem('teenagera_pass',p);
+document.getElementById('saveMsg').innerText='Profile Saved';
+}
+function logout(){localStorage.removeItem('teenagera_user'); location.href='index.html';}
+checkAuth();
+</script>
+
+</body>
+</html>

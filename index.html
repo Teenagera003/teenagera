@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Teenagera - Home</title>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<div class="top-bar">
+<div class="cursive-logo">Teenagera</div>
+<div class="auth"><a href="login.html" id="loginLink">LOG IN</a><a href="#" id="logoutLink" style="display:none;" onclick="logout()">LOG OUT</a></div>
+</div>
+
+<header class="thin-header">
+<a href="index.html" class="active">Home</a>
+<a href="library.html">Library</a>
+<a href="new-arrivals.html">New Arrivals</a>
+<a href="cart.html">Cart</a>
+<a href="buy-now.html">Buy Now</a>
+<a href="whatsapp-pay.html">WhatsApp Pay</a>
+<a href="reviews.html">Reviews</a>
+<a href="about.html">About Us</a>
+<a href="contact.html">Contact Us</a>
+<a href="my-account.html">My Account</a>
+</header>
+
+<div class="page-bg"><div class="container">
+
+<div class="home-banner"><img src="assets/banner.jpg" alt="Teenagera Banner"></div>
+
+<div class="card text-center">
+<h1 class="cursive">Teenagera</h1>
+<p class="tagline">A Site For Teenagers & Book Readers</p>
+<h2>Heading - Welcome To Teenagera</h2>
+<p class="desc">WRITE YOUR INTRO HERE...</p>
+<h3>Subheading - Our Mission For Teenagers</h3>
+<p class="desc">WRITE YOUR MISSION HERE...</p>
+</div>
+
+<div class="card silver">
+<h2>Heading - Our Purpose</h2>
+<h3>Subheading 1 - Educational eBooks</h3>
+<p class="desc">Write here...</p>
+<h3>Subheading 2 - Self Growth</h3>
+<p class="desc">Write here...</p>
+</div>
+
+<div class="card text-center">
+<h2>Heading - Visit Library</h2>
+<a href="library.html" class="btn">GO TO LIBRARY</a>
+</div>
+
+</div></div>
+
+<footer class="footer">
+<h3 class="cursive" style="font-size:34px; border:none; color:#F9F5EB">Teenagera</h3>
+<div class="social-links">
+<a href="https://instagram.com/teenagera_official" target="_blank">IG</a>
+<a href="#" title="YouTube Coming Soon" style="opacity:0.6">YT</a>
+<a href="https://wa.me/923000000000" target="_blank">WA</a>
+</div>
+<p class="tagline" style="color:#EFE8D8">Follow @teenagera_official</p>
+</footer>
+
+<script>
+function checkAuth(){const u=localStorage.getItem('teenagera_user'); if(u){document.getElementById('loginLink').style.display='none'; document.getElementById('logoutLink').style.display='inline-block';}}
+function logout(){localStorage.removeItem('teenagera_user'); location.href='index.html';}
+checkAuth();
+</script>
+
+</body>
+</html>
