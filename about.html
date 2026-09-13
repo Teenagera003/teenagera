@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Us - Teenagera</title>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<div class="top-bar">
+<div class="cursive-logo">Teenagera</div>
+<div class="auth"><a href="login.html" id="loginLink">LOG IN</a><a href="#" id="logoutLink" style="display:none;" onclick="logout()">LOG OUT</a></div>
+</div>
+
+<header class="thin-header">
+<a href="index.html">Home</a>
+<a href="library.html">Library</a>
+<a href="new-arrivals.html">New Arrivals</a>
+<a href="cart.html">Cart</a>
+<a href="buy-now.html">Buy Now</a>
+<a href="whatsapp-pay.html">WhatsApp Pay</a>
+<a href="reviews.html">Reviews</a>
+<a href="about.html" class="active">About Us</a>
+<a href="contact.html">Contact Us</a>
+<a href="my-account.html">My Account</a>
+</header>
+
+<div class="page-bg"><div class="container">
+
+<div class="card text-center">
+<h1 class="cursive" style="font-size:52px; color:#4A1C26;">Teenagera</h1>
+<p class="tagline">For Teenage Girls Who Dream Big</p>
+</div>
+
+<div class="card">
+<h1>ABOUT US</h1>
+<h2>Heading - Who We Are</h2>
+<h3>Subheading - A Library For Teenage Girls</h3>
+<p class="desc">Teenagera is Pakistan's first digital library made specially for teenage girls. We believe books can change mood, mindset and future. Our collection is selected to help you grow, feel confident, and learn about life.</p>
+</div>
+
+<div class="card silver">
+<h2>Heading - Our Mission</h2>
+<h3>Subheading - Why We Started</h3>
+<p class="desc">We started Teenagera because teenage girls need safe, inspiring and useful books. Not boring library books. Real books about self-growth, friendships, family, dreams, and becoming strong women.</p>
+</div>
+
+<div class="card">
+<h2>Heading - What Makes Us Different</h2>
+<h3>Subheading - Curated With Love</h3>
+<p class="desc">Every book in Teenagera library is hand-picked. We read reviews, check age suitability, and only add books that are meaningful for 13-19 years girls. No random books.</p>
+</div>
+
+<div class="card text-center">
+<h2>Heading - Join Teenagera Family</h2>
+<p class="desc">Thousands of girls across Pakistan are part of Teenagera. Follow us on Instagram and WhatsApp for new books.</p>
+<a href="https://instagram.com/teenagera_official" class="btn">Instagram</a>
+<a href="https://wa.me/923000000000" class="btn">WhatsApp</a>
+</div>
+
+</div></div>
+
+<footer class="footer">
+<h3 class="cursive" style="font-size:34px; border:none; color:#F9F5EB">Teenagera</h3>
+<div class="social-links">
+<a href="https://instagram.com/teenagera_official" target="_blank">IG</a>
+<a href="#" style="opacity:0.6">YT</a>
+<a href="https://wa.me/923257249825" target="_blank">WA</a>
+</div>
+<p style="margin-top:10px; font-size:11px; opacity:0.7;">© 2025 Teenagera - Made for Teenage Girls</p>
+</footer>
+
+<script>
+function checkAuth(){const u=localStorage.getItem('teenagera_user'); if(u){document.getElementById('loginLink').style.display='none'; document.getElementById('logoutLink').style.display='inline-block';}}
+function logout(){localStorage.removeItem('teenagera_user'); location.href='index.html';}
+checkAuth();
+</script>
+
+</body>
+</html>
